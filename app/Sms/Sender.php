@@ -4,6 +4,7 @@ namespace App\Sms;
 
 use Corp104\Common\Sms\Sms;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Http;
 
 /**
  * 簡訊寄送器
@@ -21,8 +22,17 @@ class Sender
     {
         $content = trim($view->render());
 
-        // 公司舊版寄簡訊 lib
-        // sendTo() 方法實際是打舊版寄簡訊 api
-        $this->sms->sendTo($cellphone, $content);
+        // 公司 SMS2.0 寄簡訊 api
+        Http::withHeader('X-SMS-Token', 'whatever-token')
+            ->post(
+                'https://sms2.104dc-dev.com/send-sms',
+                [
+                    'projectCode' => 'B0098',
+                    'attribute' => 2,
+                    'phoneNumber' => $cellphone,
+                    'messageContent' => $content,
+                    'priority' => 1,
+                ],
+            );
     }
 }
