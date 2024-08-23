@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 /**
  * 簡訊寄送器
  */
-class V2Sender
+class V2Sender implements SenderInterface
 {
     /**
      * 寄送簡訊

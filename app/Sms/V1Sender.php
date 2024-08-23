@@ -8,7 +8,7 @@ use Illuminate\Contracts\View\View;
 /**
  * 簡訊寄送器
  */
-class V1Sender
+class V1Sender implements SenderInterface
 {
     public function __construct(private readonly Sms $sms)
     {
