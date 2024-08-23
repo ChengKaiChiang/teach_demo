@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Sms;
+namespace App\Sms\Drivers;
 
+use App\Sms\SenderInterface;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Http;
 

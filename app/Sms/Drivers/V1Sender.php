@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Sms;
+namespace App\Sms\Drivers;
 
+use App\Sms\SenderInterface;
 use Corp104\Common\Sms\Sms;
 use Illuminate\Contracts\View\View;
 
 /**
  * 簡訊寄送器
  */
+
 class V1Sender implements SenderInterface
 {
     public function __construct(private readonly Sms $sms)
