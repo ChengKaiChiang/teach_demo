@@ -7,4 +7,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/send-sms/{cellphone}', SendSmsController::class);
+Route::get('/send-sms/{cellphone}', SendSmsController::class)->name('send_sms');
