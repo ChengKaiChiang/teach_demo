@@ -2,19 +2,14 @@
 
 namespace App\Sms;
 
-use Corp104\Common\Sms\Sms;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Http;
 
 /**
  * 簡訊寄送器
  */
-class Sender
+class V2Sender
 {
-    public function __construct(private readonly Sms $sms)
-    {
-    }
-
     /**
      * 寄送簡訊
      */
